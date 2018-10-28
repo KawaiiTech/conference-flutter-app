@@ -30,12 +30,12 @@ void main() {
     expect(schedule.day2.track1.talks[11].id, "closing");
   });
 
-  test('track 3, slot 5 should be sketchnoting',  () async {
+  test('track 3, slot 5 should be sketchnoting', () async {
     Schedule schedule = await getSchedule();
     expect(schedule.day1.track3.talks[5].id, "sketchnoting");
   });
 
-  test('First talk title should be Registration',  () async {
+  test('First talk title should be Registration', () async {
     Schedule schedule = await getSchedule();
     expect(schedule.day1.track1.talks[0].title, "Registration");
   });

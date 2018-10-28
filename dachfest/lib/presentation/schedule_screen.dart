@@ -1,8 +1,6 @@
 import 'package:dachfest/data/local_data.dart';
-import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
-import 'package:dachfest/presentation/talk_list_row.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -56,7 +54,7 @@ class ScheduleScreenState extends State<ScheduleScreen> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            switch(index){
+            switch (index) {
               case 0:
                 _currentScreen = DayScreen(_schedule.day1);
                 break;
