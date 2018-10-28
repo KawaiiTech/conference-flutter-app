@@ -11,7 +11,17 @@ class TalkView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (talk.id.isEmpty) {
-      return Container();
+      return Container(
+        height: 100.0,
+        child: Center(
+            child: Text(
+          "No Session :-)",
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 10.0,
+          ),
+        )),
+      );
     }
     return Container(
       height: 100.0 * talk.extend,
@@ -32,9 +42,10 @@ class TalkView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                Text("speaker"),
-                FlutterLogo(),
-              ],)
+                  Text("speaker"),
+                  FlutterLogo(),
+                ],
+              )
             ],
           ),
         ),
