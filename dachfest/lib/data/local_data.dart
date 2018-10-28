@@ -1,6 +1,5 @@
 import 'dart:async' show Future;
 import 'dart:convert' as parser;
-import 'package:dachfest/domain/talk.dart';
 import 'package:flutter/material.dart';
 
 Future<String> loadJson(BuildContext context) async {
