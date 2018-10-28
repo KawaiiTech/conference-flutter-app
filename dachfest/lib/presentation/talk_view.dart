@@ -14,7 +14,7 @@ class TalkView extends StatelessWidget {
       return Container();
     }
     return Container(
-      height: 100.0,
+      height: 100.0 * talk.extend,
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

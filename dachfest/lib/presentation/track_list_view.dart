@@ -12,6 +12,13 @@ class TrackListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var rows = <Widget>[];
+
+    for (var i = 0; i < track.talks.length;) {
+      rows.add(getTalkWidget(i));
+      i += track.talks[i].extend;
+    }
+
     return ListView.builder(
       itemBuilder: (context, index) {
         return getTalkWidget(index);
@@ -24,7 +31,7 @@ class TrackListView extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-        TimeView(slotInfo[position]),
+        TimeView(slotInfo, position, track.talks[position].extend),
         Expanded(child: TalkView(track.talks[position])),
       ],
     );
@@ -32,12 +39,22 @@ class TrackListView extends StatelessWidget {
 }
 
 class TimeView extends StatelessWidget {
-  final SlotInfo slotInfo;
+  final List<SlotInfo> slotInfo;
+  final int position;
+  final int extend;
 
-  TimeView(this.slotInfo);
+  TimeView(this.slotInfo, this.position, this.extend);
 
   @override
   Widget build(BuildContext context) {
+    var rows = <Widget>[];
+    for (var i = 0; i < extend; i++) {
+      rows.add(buildContainer(i));
+    }
+    return Column(children: rows);
+  }
+
+  Container buildContainer(int index) {
     return Container(
       height: 100.0,
       child: Padding(
@@ -45,8 +62,8 @@ class TimeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(slotInfo.start),
-            Text(slotInfo.end),
+            Text(slotInfo[position + index].start),
+            Text(slotInfo[position + index].end),
           ],
         ),
       ),
