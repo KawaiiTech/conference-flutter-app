@@ -38,8 +38,9 @@ class Talk {
   final String id;
   final String title;
   final List<Author> authors;
+  final int extend;
 
-  Talk({this.id, this.title, this.authors});
+  Talk({this.id, this.title, this.authors, this.extend = 1});
 
   @override
   String toString() {

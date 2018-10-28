@@ -35,6 +35,11 @@ void main() {
     expect(schedule.day1.track3.talks[5].id, "sketchnoting");
   });
 
+  test('track 3, slot 5 should have extend 3', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track3.talks[5].extend, 3);
+  });
+
   test('First talk title should be Registration', () async {
     Schedule schedule = await getSchedule();
     expect(schedule.day1.track1.talks[0].title, "Registration");

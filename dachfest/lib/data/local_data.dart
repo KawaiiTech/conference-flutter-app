@@ -45,7 +45,8 @@ Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
     }
     if (sessions.length > 2) {
       final talk = sessions[2]['items'][0];
-      track3.add(parseTalk(talk, data));
+      final extend = sessions[2]['extend'];
+      track3.add(parseTalk(talk, data, extend));
     } else {
       track3.add(emptyTalk);
     }
@@ -63,12 +64,13 @@ Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
   );
 }
 
-Talk parseTalk(id, Map<String, dynamic> data) {
+Talk parseTalk(id, Map<String, dynamic> data, [int extend = 1]) {
   final talk = data['sessions'][id];
 
   return Talk(
     id: id,
     title: talk['title'],
+    extend: extend,
   );
 }
 
