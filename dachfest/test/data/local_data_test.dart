@@ -63,9 +63,19 @@ void main() {
     expect(schedule.day1.track1.talks[2].description, isNotEmpty);
   });
 
+  test('track 1, slot 1 should not have a list of speakers', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track1.talks[0].speakers.length, 0);
+  });
+
   test('track 1, slot 3 should have a list of speakers', () async {
     Schedule schedule = await getSchedule();
     expect(schedule.day1.track1.talks[2].speakers, isNotEmpty);
+  });
+
+  test('track 3, slot 5 should have two speakers', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track3.talks[5].speakers.length, 2);
   });
 }
 
