@@ -9,6 +9,25 @@ class DayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TrackListView(day.track1);
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: TabBar(
+          labelColor: Colors.pinkAccent,
+          tabs: [
+            Text("Track 1"),
+            Text("Track 2"),
+            Text("Workshops"),
+          ],
+        ),
+        body: TabBarView(
+          children: [
+            TrackListView(day.track1),
+            TrackListView(day.track2),
+            TrackListView(day.track3),
+          ],
+        ),
+      ),
+    );
   }
 }
