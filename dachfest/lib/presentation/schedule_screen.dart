@@ -1,3 +1,4 @@
+import 'package:dachfest/data/local_data.dart';
 import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
@@ -16,8 +17,17 @@ class ScheduleScreen extends StatefulWidget {
 class ScheduleScreenState extends State<ScheduleScreen> {
   int _currentIndex = 0;
 
-  // TODO use this
-  Schedule _schedule = mockSchedule;
+  Schedule _schedule;
+
+  @override
+  void initState() {
+    super.initState();
+    getSchedule(context).then((schedule) {
+      setState(() {
+        _schedule = schedule;
+      });
+    });
+  }
 
   var _currentScreen;
 
