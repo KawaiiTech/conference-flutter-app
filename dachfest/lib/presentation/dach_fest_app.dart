@@ -18,6 +18,7 @@ class DachFestAppState extends State<DachFestApp> {
         accentColor: Color(0xFFFFA726),
         primaryColorLight: Color(0x33673ab7)
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

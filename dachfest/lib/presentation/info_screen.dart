@@ -105,10 +105,15 @@ class InfoScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
-            onPressed: () => _launchURL('https://ti.to/dachfest/2018'),
-            child: Text("GET TICKETS!"),
-            color: Theme.of(context).accentColor,
+          InkWell(
+            child: Text(
+              "dachfest.com",
+              style: Theme.of(context).accentTextTheme.subhead.copyWith(
+                decoration: TextDecoration.underline,
+                color: Theme.of(context).accentColor,
+              ),
+            ),
+            onTap: () => _launchURL('https://dachfest.com'),
           ),
         ],
       ),
