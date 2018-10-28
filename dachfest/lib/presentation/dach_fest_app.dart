@@ -13,6 +13,9 @@ class DachFestAppState extends State<DachFestApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: ScheduleScreen(),
+      theme: ThemeData(
+        primaryColor: Color(0xFF673ab7)
+      ),
     );
   }
 }

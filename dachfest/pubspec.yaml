@@ -38,6 +38,7 @@ flutter:
 
   assets:
    - data_repo/dachfest-2018.json
+   - assets/logo.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
