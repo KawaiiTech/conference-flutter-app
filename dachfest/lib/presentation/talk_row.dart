@@ -1,4 +1,4 @@
-import 'package:dachfest/domain/talk.dart';
+import 'package:dachfest/domain/domain.dart';
 import 'package:flutter/material.dart';
 
 class TalkListRow extends StatelessWidget {
@@ -12,9 +12,9 @@ class TalkListRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Text(talk.time),
+        Text(""),
         Text(talk.title),
-        Text(talk.author),
+        Text(""),
       ],
     );
   }

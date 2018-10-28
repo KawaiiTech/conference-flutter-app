@@ -2,7 +2,7 @@ class Schedule {
   final Day day1;
   final Day day2;
 
-  Schedule.name(this.day1, this.day2);
+  Schedule({this.day1, this.day2});
 }
 
 class Day {
@@ -10,13 +10,13 @@ class Day {
   final Track track2;
   final Track track3;
 
-  Day.name(this.track1, this.track2, this.track3);
+  Day({this.track1, this.track2, this.track3});
 }
 
 class Track {
   final List<Talk> talks;
 
-  Track.name(this.talks);
+  Track({this.talks});
 }
 
 class Talk {
@@ -25,7 +25,7 @@ class Talk {
   final String title;
   final List<Author> authors;
 
-  Talk.name(this.timeStart, this.timeEnd, this.title, this.authors);
+  Talk({this.timeStart, this.timeEnd, this.title, this.authors});
 
   @override
   String toString() {
@@ -37,5 +37,5 @@ class Author {
   final String name;
   final String picture;
 
-  Author.name(this.name, this.picture);
+  Author({this.name, this.picture});
 }
