@@ -1,30 +1,29 @@
-import 'package:dachfest/data/talk.dart';
+import 'package:dachfest/data/local_data.dart';
+import 'package:dachfest/domain/talk.dart';
 import 'package:dachfest/presentation/talk_row.dart';
 import 'package:flutter/material.dart';
 
-class TalksScreen extends StatelessWidget {
-  final List<Talk> talks = [
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-  ];
+class TalksScreen extends StatefulWidget {
+  @override
+  TalksScreenState createState() {
+    return new TalksScreenState();
+  }
+}
+
+class TalksScreenState extends State<TalksScreen> {
+  Schedule talks = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getAllTalks(context).then((talks) {
+      setState(() {
+        this.talks = talks;
+      });
+    }, onError: (error) {
+      print(error);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

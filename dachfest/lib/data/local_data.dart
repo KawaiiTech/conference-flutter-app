@@ -1,10 +1,10 @@
 import 'dart:async' show Future;
 import 'dart:convert' as parser;
-import 'package:dachfest/data/talk.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:dachfest/domain/talk.dart';
+import 'package:flutter/material.dart';
 
-Future<String> loadJson() async {
-  return await rootBundle.loadString('data_repo/dachfest-2018.json');
+Future<String> loadJson(BuildContext context) async {
+  return await DefaultAssetBundle.of(context).loadString('data_repo/dachfest-2018.json');
 }
 
 Map<String, dynamic> decode(String string) {
@@ -17,7 +17,13 @@ List<Talk> parseTalks(Map<String, dynamic> data) {
   final List<Talk> talks = keys.map((key) {
     return Talk(
       title: sessions[key]['title'],
+      author: "",
+      time: "",
     );
   }).toList();
   return talks;
+}
+
+Future<List<Talk>> getAllTalks(BuildContext context) async {
+  return parseTalks(decode(await loadJson(context)));
 }

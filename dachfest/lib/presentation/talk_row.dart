@@ -1,4 +1,4 @@
-import 'package:dachfest/data/talk.dart';
+import 'package:dachfest/domain/talk.dart';
 import 'package:flutter/material.dart';
 
 class TalkListRow extends StatelessWidget {
