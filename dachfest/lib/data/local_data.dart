@@ -45,7 +45,7 @@ Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
     }
     if (sessions.length > 2) {
       final talk = sessions[2]['items'][0];
-      final extend = sessions[2]['extend'];
+      final extend = sessions[2]['extend'] ?? 1;
       track3.add(parseTalk(talk, data, extend));
     } else {
       track3.add(emptyTalk);
