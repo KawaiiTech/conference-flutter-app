@@ -2,7 +2,16 @@ import 'package:dachfest/data/talk.dart';
 import 'package:dachfest/presentation/talk_row.dart';
 import 'package:flutter/material.dart';
 
-class TalksScreen extends StatelessWidget {
+class TalksScreen extends StatefulWidget {
+  @override
+  TalksScreenState createState() {
+    return new TalksScreenState();
+  }
+}
+
+class TalksScreenState extends State<TalksScreen> {
+  int _currentIndex = 0;
+
   final List<Talk> talks = [
     Talk(
         time: "10:00",
@@ -34,24 +43,32 @@ class TalksScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: talks.length,
-        itemBuilder: (BuildContext context, int index) =>
-            TalkListRow(
+        itemBuilder: (BuildContext context, int index) => TalkListRow(
               talks[index],
             ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.android),
-          title: Text("Day 1"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.android),
-          title: Text("Day 2"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.info),
-          title: Text("Info"),
-        ),
-      ]));
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.android),
+            title: Text("Day 1"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.android),
+            title: Text("Day 2"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info),
+            title: Text("Info"),
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+    );
   }
 }
