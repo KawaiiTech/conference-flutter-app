@@ -38,13 +38,17 @@ class TimeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Text(slotInfo.start),
-          Text(slotInfo.end),
-        ],
+    return Container(
+      height: 100.0,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(slotInfo.start),
+            Text(slotInfo.end),
+          ],
+        ),
       ),
     );
   }

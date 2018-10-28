@@ -13,20 +13,23 @@ class TalkView extends StatelessWidget {
     if (talk.id.isEmpty) {
       return Container();
     }
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Flex(
-          direction: Axis.vertical,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              talk.title,
-              style: TextStyle(fontSize: 18.0),
-              softWrap: true,
-            ),
-          ],
+    return Container(
+      height: 100.0,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Flex(
+            direction: Axis.vertical,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                talk.title,
+                style: TextStyle(fontSize: 18.0),
+                softWrap: true,
+              ),
+            ],
+          ),
         ),
       ),
     );
