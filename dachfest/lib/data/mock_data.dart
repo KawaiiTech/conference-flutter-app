@@ -6,7 +6,7 @@ final Schedule mockSchedule = Schedule(
             talks: mockTalks
         ),
         track2: Track(
-            talks: mockTalks
+            talks: mockTalks2
         ),
         track3: Track(
             talks: mockTalks
@@ -17,7 +17,7 @@ final Schedule mockSchedule = Schedule(
             talks: mockTalks
         ),
         track2: Track(
-            talks: mockTalks
+            talks: mockTalks2
         ),
         track3: Track(
             talks: mockTalks
@@ -30,15 +30,32 @@ final List<Talk> mockTalks = [
     title: "Sketchnoting Workshop",
   ),
   Talk(
-    title: "Sketchnoting Workshop",
+    title: "keynote",
   ),
   Talk(
-    title: "Sketchnoting Workshop",
+    title: "coffe break",
   ),
   Talk(
-    title: "Sketchnoting Workshop",
+    title: "more",
   ),
   Talk(
-    title: "Sketchnoting Workshop",
+    title: "party",
+  ),
+];
+final List<Talk> mockTalks2 = [
+  Talk(
+    title: "Sketchnoting Workshop2",
+  ),
+  Talk(
+    title: "keynote2",
+  ),
+  Talk(
+    title: "coffe break2",
+  ),
+  Talk(
+    title: "more2",
+  ),
+  Talk(
+    title: "party2",
   ),
 ];

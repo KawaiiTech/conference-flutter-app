@@ -1,5 +1,6 @@
 import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/domain/domain.dart';
+import 'package:dachfest/presentation/day_screen.dart';
 import 'package:dachfest/presentation/talk_list_row.dart';
 import 'package:flutter/material.dart';
 
@@ -18,20 +19,14 @@ class ScheduleScreenState extends State<ScheduleScreen> {
   // TODO use this
   Schedule _schedule = mockSchedule;
 
+  var _currentScreen;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("TalksScreen"),
       ),
-      body: Container(),
-// TODO
-//      ListView.builder(
-//        itemCount: talks.length,
-//        itemBuilder: (BuildContext context, int index) => TalkListRow(
-//              talks[index],
-//            ),
-//      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: [
@@ -51,8 +46,22 @@ class ScheduleScreenState extends State<ScheduleScreen> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            switch(index){
+              case 0:
+                _currentScreen = DayScreen(_schedule.day1);
+                break;
+              case 1:
+                _currentScreen = DayScreen(_schedule.day2);
+                break;
+              case 2:
+                _currentScreen = Text("info");
+                break;
+            }
           });
         },
+      ),
+      body: Container(
+        child: _currentScreen,
       ),
     );
   }
