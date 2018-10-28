@@ -19,13 +19,18 @@ class Track {
   Track({this.talks});
 }
 
+final emptyTalk = Talk(
+  id: "",
+  title: "",
+  authors: [],
+);
+
 class Talk {
-  final String timeStart; //TODO make as Long
-  final String timeEnd;
+  final String id;
   final String title;
   final List<Author> authors;
 
-  Talk({this.timeStart, this.timeEnd, this.title, this.authors});
+  Talk({this.id, this.title, this.authors});
 
   @override
   String toString() {

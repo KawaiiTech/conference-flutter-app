@@ -22,9 +22,11 @@
   },
   "partners": [
     {
+      "order" : 0,
       "title": "Made DACHFest possible!",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/google.svg",
           "name": "Google",
           "url": "https://www.google.com/intl/en/about/"
@@ -32,9 +34,11 @@
       ]
     },
     {
+      "order" : 1,
       "title": "Diamond",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/airbus.svg",
           "name": "Airbus",
           "url": "https://www.airbus.com/"
@@ -42,9 +46,11 @@
       ]
     },
     {
+      "order" : 3,
       "title": "Gold",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/sotec.svg",
           "name": "SOTEC",
           "url": "http://sotec.eu/"
@@ -52,19 +58,29 @@
       ]
     },
     {
+      "order" : 4,
       "title": "Silver",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/quartett-mobile.svg",
           "name": "Quartett Mobile",
           "url": "https://www.quartett-mobile.de/"
+        },
+        {
+          "order" : 1,
+          "logoUrl": "../images/logos/cosmos.svg",
+          "name": "Cosmos - Internet of Blockchains",
+          "url": "https://cosmos.network/"
         }
       ]
     },
     {
+      "order" : 5,
       "title": "Diversity Sponsor",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/flixbus.png",
           "name": "FlixBus",
           "url": "https://flixbus.de"
@@ -72,9 +88,11 @@
       ]
     },
     {
+      "order" : 6,
       "title": "Supportive Sponsor",
       "logos": [
         {
+          "order" : 0,
           "logoUrl": "../images/logos/jetbrains.svg",
           "name": "JetBrains",
           "url": "https://jetbrains.com"
@@ -91,6 +109,9 @@
         },
         {
           "title" : "Track Two"
+        },
+        {
+          "title" : "Workshops"
         }
       ],
       "timeslots": [
@@ -133,7 +154,11 @@
           "startTime": "13:20",
           "endTime": "13:45",
           "sessions": [
-            { "items": [ "fatigue" ] }
+            { "items": [ "fatigue" ]},
+            { "items": [ "lunch" ]},
+            { "items": [ "sketchnoting" ],
+              "extend": 3
+            }
           ]
         },
         {
@@ -165,7 +190,10 @@
           "endTime": "17:15",
           "sessions": [
             { "items": [ "immersivesound" ] },
-            { "items": [ "loveoftech" ] }
+            { "items": [ "loveoftech" ] },
+            { "items": [ "headlesscms" ],
+              "extend": 2
+            }
           ]
         },
         {
@@ -194,6 +222,9 @@
         },
         {
           "title" : "Track Two"
+        },
+        {
+          "title" : "Workshops"
         }
       ],
       "timeslots": [
@@ -209,7 +240,10 @@
           "endTime": "10:10",
           "sessions": [
             { "items": [ "featurenotbug" ] },
-            { "items": [ "testoftime" ] }
+            { "items": [ "testoftime" ] },
+            { "items": [ "actionsongoogle" ],
+              "extend": 4
+            }
           ]
         },
         {
@@ -241,6 +275,7 @@
           "endTime": "13:20",
           "sessions": [
             { "items": [ "livecoding" ] },
+            { "items": [ "lunch" ] },
             { "items": [ "lunch" ] }
           ]
         },
@@ -249,7 +284,10 @@
           "endTime": "14:15",
           "sessions": [
             { "items": [ "lunch" ] },
-            { "items": [ "cssquickdraw" ] }
+            { "items": [ "cssquickdraw" ] },
+            { "items": [ "flutter40" ],
+              "extend": 1
+            }
           ]
         },
         {
@@ -257,7 +295,10 @@
           "endTime": "15:10",
           "sessions": [
             { "items": [ "succeedonmobileweb" ] },
-            { "items": [ "lightning-two" ] }
+            { "items": [ "lightning-two" ] },
+            { "items": [ "flutterstudyjam" ],
+              "extend": 2
+            }
           ]
         },
         {
@@ -504,13 +545,6 @@
       ],
       "tags": []
     },
-    "flutter40": {
-      "language": "English",
-      "title": "Flutter in 40 Minutes",
-      "description": "Jump on board for a whirlwind tour of Flutter, Google’s newest open source mobile app SDK. Explore how to build apps quickly and efficiently using the Dart programming language and check out a live coding session in Flutter. Let’s see how far we can get building out an app!\n\nWhile we’ll be looking at what makes Flutter tick, this talk will be light on theory and heavy on practice so we can explore Flutter in action. We’re going to dive in to some real Flutter code and build an app because, just like the Matrix, you have to see it for yourself!",
-      "speakers": [],
-      "tags": []
-    },
     "everybodyneedssomebody": {
       "language": "English",
       "title": "Everybody Needs Somebody",
@@ -673,7 +707,7 @@
       ],
       "tags": [ ]
     },
-    "flutterin40minutes": {
+    "flutter40": {
       "language": "English",
       "title": "Flutter in 40 minutes",
       "description": "Flutter’s a new and wonderful way to build apps for iOS and Android. It’s designed to let you create great looking, customized UIs in a surprisingly short amount of time, and have fun while doing it.\n\nWhile we’ll be looking at what makes Flutter tick, this talk will be light on theory and heavy on practice so we can explore Flutter in action. We’re going to dive in to some real Flutter code and build an app because, just like the Matrix, you have to see it for yourself!\n\nSo come take the red pill and experience app development with Flutter.",
@@ -707,6 +741,15 @@
       "speakers": [
         "lariki",
         "miqubel"
+      ],
+      "tags": [ ]
+    },
+    "headlesscms": {
+      "language": "English",
+      "title": "Agile Content Management: The future with Headless CMSs and GraphQL",
+      "description": "Our industry is full of new technologies and buzzwords like GraphQL, headless content management, micro-services and serverless. How do you keep track? Where do you learn what it all means? In this talk! We will be combining all of these concepts into a fast-paced 'experience where we explore the changing landscape of working with content on the web, creation and delivery. For those wishing to “code along” a laptop with NodeJS and Chrome will be helpful, but the pace will be fast enough for those just wishing to learn how all these new pieces fit together. Come join us for a flexible, open atmosphere where questions are welcome!\n\nWith experience in branding, web development, product design and digital strategy, Jesse will help explain all these concepts in a clear and helpful way for both coders and the C-suite.",
+      "speakers": [
+        "jessemartin"
       ],
       "tags": [ ]
     }
@@ -837,6 +880,29 @@
         "icon" : "twitter",
         "link" : "https://twitter.com/jesserweigel",
         "name" : "Twitter"
+      } ]
+    },
+    "jessemartin" : {
+      "name" : "Jesse Martin",
+      "country" : "Germany",
+      "featured" : true,
+
+      "company" : "GraphCMS GmbH",
+      "title" : "Developer Advocate",
+
+      "photoUrl" : "/images/people/speakers/jessemartin.jpg",
+
+      "shortBio" : "Developer advocate for GraphCMS. Attempting to be the nicest guy on the internet.",
+      "bio" : "Jesse Martin is a brand lover, technology champion and all-around nice guy. After years spent in digital strategy and software development, Jesse is on a mission to show developers there is a better way to work with content on the web. When he’s not building databases about wine or comparing deep technical topics to cake layers, he spends his time with his wife and two kids, trying to combine his love for faith, family, friends, fitness and food. He may or may not be in the middle of an 18 hour fast and apologises in advance.",
+      "socials" : [ {
+        "icon" : "twitter",
+        "link" : "https://twitter.com/motleydev",
+        "name" : "Twitter"
+      },
+        {
+        "icon" : "website",
+        "link" : "https://graphcms.com",
+        "name" : "Website"
       } ]
     },
     "jessicarose" : {
@@ -1672,6 +1738,15 @@
       "info" : "Being a student is hard, so let us make it a bit easier. ❤️",
       "name" : "Student",
       "price" : 50,
+      "soldOut" : false,
+      "url" : "https://ti.to/dachfest/2018"
+    },
+    {
+      "available" : true,
+      "currency" : "€",
+      "info" : "Free admission to the conference for TU Members. ❤️",
+      "name" : "TU Student / Member",
+      "price" : 0,
       "soldOut" : false,
       "url" : "https://ti.to/dachfest/2018"
     }

@@ -34,12 +34,18 @@ Day parseDay(Map<String, dynamic> day1data, Map<String, dynamic> data) {
   for (final slot in timeslots) {
     final List<dynamic> sessions = slot['sessions'];
     final talk1 = sessions[0]['items'][0];
-    track1.add(Talk(title: talk1));
+    track1.add(parseTalk(talk1, data));
     if (sessions.length > 1) {
-      final talk2 = sessions[1]['items'][0];
-      track2.add(Talk(title: talk2));
+      final talk = sessions[1]['items'][0];
+      track2.add(parseTalk(talk, data));
     } else {
-      track2.add(Talk(title: ""));
+      track2.add(emptyTalk);
+    }
+    if (sessions.length > 2) {
+      final talk = sessions[2]['items'][0];
+      track3.add(parseTalk(talk, data));
+    } else {
+      track3.add(emptyTalk);
     }
   }
 
@@ -50,17 +56,15 @@ Day parseDay(Map<String, dynamic> day1data, Map<String, dynamic> data) {
   );
 }
 
-List<Talk> parseTalks(Map<String, dynamic> data) {
-  final Map<String, dynamic> sessions = data['sessions'];
-  final keys = sessions.keys;
-  final List<Talk> talks = keys.map((key) {
-    return Talk(
-      title: sessions[key]['title'],
-    );
-  }).toList();
-  return talks;
+Talk parseTalk(id, Map<String, dynamic> data) {
+  final talk = data['sessions'][id];
+
+  return Talk(
+    id: id,
+    title: talk['title'],
+  );
 }
 
-Future<List<Talk>> getAllTalks(BuildContext context) async {
-  return parseTalks(decode(await loadJson(context)));
+Future<Schedule> getSchedule(BuildContext context) async {
+  return parseSchedule(decode(await loadJson(context)));
 }
