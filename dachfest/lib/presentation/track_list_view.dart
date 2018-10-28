@@ -80,7 +80,8 @@ class TimeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(slotInfo[position + index].start),
-            Text(slotInfo[position + index].end),
+// TODO: Decide if we want to display the end time or not for each slot
+//            Text(slotInfo[position + index].end),
           ],
         ),
       ),
