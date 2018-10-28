@@ -17,23 +17,24 @@ class ScheduleScreenState extends State<ScheduleScreen> {
 
   Schedule _schedule;
 
+  var _currentScreen;
+
   @override
   void initState() {
     super.initState();
     getSchedule(context).then((schedule) {
       setState(() {
         _schedule = schedule;
+        _currentScreen = DayScreen(_schedule.day1);
       });
     });
   }
-
-  var _currentScreen;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TalksScreen"),
+        title: Text("DACHFest"),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
