@@ -41,38 +41,49 @@ class ScheduleScreenState extends State<ScheduleScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.android),
-            title: Text("Day 1"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.android),
-            title: Text("Day 2"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            title: Text("Info"),
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-            switch (index) {
-              case 0:
-                _currentScreen = DayScreen(_schedule.day1);
-                break;
-              case 1:
-                _currentScreen = DayScreen(_schedule.day2);
-                break;
-              case 2:
-                _currentScreen = Text("info");
-                break;
-            }
-          });
-        },
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: Theme.of(context).primaryColor,
+          primaryColor: Colors.pinkAccent,
+          textTheme: Theme.of(context).textTheme.copyWith(
+                caption: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.android),
+              title: Text("Day 1"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.android),
+              title: Text("Day 2"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info),
+              title: Text("Info"),
+            ),
+          ],
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+              switch (index) {
+                case 0:
+                  _currentScreen = DayScreen(_schedule.day1);
+                  break;
+                case 1:
+                  _currentScreen = DayScreen(_schedule.day2);
+                  break;
+                case 2:
+                  _currentScreen = Text("info");
+                  break;
+              }
+            });
+          },
+        ),
       ),
       body: Container(
         child: _currentScreen,
