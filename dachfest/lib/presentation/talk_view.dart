@@ -20,14 +20,21 @@ class TalkView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Flex(
             direction: Axis.vertical,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 talk.title,
                 style: TextStyle(fontSize: 18.0),
                 softWrap: true,
+                maxLines: 2,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                Text("speaker"),
+                FlutterLogo(),
+              ],)
             ],
           ),
         ),
