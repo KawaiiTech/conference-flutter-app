@@ -50,8 +50,9 @@ class Talk {
 }
 
 class Speaker {
+  final id;
   final String name;
   final String picture;
 
-  Speaker({this.name, this.picture});
+  Speaker({this.id, this.name, this.picture,});
 }

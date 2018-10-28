@@ -85,6 +85,7 @@ List<Speaker> parseSpeakers(List<dynamic> speakerIds, data) {
   for (String speakerId in speakerIds) {
     final speakerData = speakersData[speakerId];
     Speaker speaker = Speaker(
+      id: speakerId,
       name: speakerData['name'],
       picture: speakerData['photoUrl'],
     );

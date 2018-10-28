@@ -17,7 +17,9 @@ class TalkDetailsScreen extends StatelessWidget {
               collapseMode: CollapseMode.parallax,
               title: Text(
                 talk.title,
-                style: TextStyle(fontSize: 16.0),
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
               ),
             ),
             expandedHeight: 150.0,
@@ -30,12 +32,20 @@ class TalkDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
                     talk.title,
-                    style: TextStyle(fontSize: 20.0),
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Text(talk.description),
+                  child: Text(
+                    talk.description,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
                 ),
                 buildSpeakersList(),
               ]),
@@ -63,9 +73,33 @@ class TalkDetailsScreen extends StatelessWidget {
       ),
     ];
     for (var i = 0; i < talk.speakers.length; i++) {
-      widgets.add(
-        Text(talk.speakers[i].name),
-      );
+      widgets.add(Row(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: Container(
+              width: 100.0,
+              height: 100.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.scaleDown,
+                      image: NetworkImage(
+                        "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
+                      ))),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 24.0),
+            child: Text(
+              talk.speakers[i].name,
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+          ),
+        ],
+      ));
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
