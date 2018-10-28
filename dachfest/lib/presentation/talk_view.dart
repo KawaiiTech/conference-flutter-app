@@ -39,17 +39,42 @@ class TalkView extends StatelessWidget {
                 softWrap: true,
                 maxLines: 2,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text("speaker"),
-                  FlutterLogo(),
-                ],
-              )
+              buildSpeakersRow()
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget buildSpeakersRow() {
+    var style = TextStyle(fontSize: 12.0, color: Colors.grey);
+    var num = talk.speakers.length;
+    switch (num) {
+      case 0:
+        return Container();
+      case 1:
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              talk.speakers[0].name,
+              style: style,
+            ),
+//            FlutterLogo(),
+          ],
+        );
+      default:
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              "Several Speakers!",
+              style: style,
+            ),
+//            Icon(Icons.tag_faces),
+          ],
+        );
+    }
   }
 }
