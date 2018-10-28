@@ -34,10 +34,24 @@ class TalksScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: talks.length,
-        itemBuilder: (BuildContext context, int index) => TalkListRow(
+        itemBuilder: (BuildContext context, int index) =>
+            TalkListRow(
               talks[index],
             ),
       ),
-    );
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.android),
+          title: Text("Day 1"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.android),
+          title: Text("Day 2"),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.info),
+          title: Text("Info"),
+        ),
+      ]));
   }
 }
