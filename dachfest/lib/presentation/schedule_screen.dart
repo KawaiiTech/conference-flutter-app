@@ -1,6 +1,7 @@
 import 'package:dachfest/data/local_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
+import 'package:dachfest/presentation/info_screen.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -78,7 +79,7 @@ class ScheduleScreenState extends State<ScheduleScreen> {
                   _currentScreen = DayScreen(_schedule.day2);
                   break;
                 case 2:
-                  _currentScreen = Text("info");
+                  _currentScreen = InfoScreen();
                   break;
               }
             });
