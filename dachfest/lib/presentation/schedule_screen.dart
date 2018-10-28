@@ -56,14 +56,14 @@ class ScheduleScreenState extends State<ScheduleScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
-              title: Text("Day 1"),
+              title: Text("November 10"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
-              title: Text("Day 2"),
+              title: Text("November 11"),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.info),
+              icon: Icon(Icons.info_outline),
               title: Text("Info"),
             ),
           ],
