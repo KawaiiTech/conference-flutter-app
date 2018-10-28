@@ -1,4 +1,5 @@
 import 'package:dachfest/domain/domain.dart';
+import 'package:dachfest/presentation/speaker_screen.dart';
 import 'package:flutter/material.dart';
 
 class TalkDetailsScreen extends StatelessWidget {
@@ -65,20 +66,36 @@ class TalkDetailsScreen extends StatelessWidget {
     for (var i = 0; i < talk.speakers.length; i++) {
       widgets.add(Row(
         children: <Widget>[
-          CircleAvatar(
-            radius: 50.0,
-            backgroundColor: Theme.of(context).primaryColorLight,
-            backgroundImage: NetworkImage(
-              "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-              talk.speakers[i].name,
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SpeakerScreen(
+                        speaker: talk.speakers[i],
+                      ),
+                ),
+              );
+            },
+            child: Row(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 50.0,
+                  backgroundColor: Theme.of(context).primaryColorLight,
+                  backgroundImage: NetworkImage(
+                    "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    talk.speakers[i].name,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
