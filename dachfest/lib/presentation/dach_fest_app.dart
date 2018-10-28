@@ -16,6 +16,7 @@ class DachFestAppState extends State<DachFestApp> {
       theme: ThemeData(
         primaryColor: Color(0xFF673ab7),
         accentColor: Color(0xFFFFA726),
+        primaryColorLight: Color(0x33673ab7)
       ),
     );
   }

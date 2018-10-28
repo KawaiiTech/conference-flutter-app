@@ -47,7 +47,7 @@ class TalkDetailsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                buildSpeakersList(),
+                buildSpeakersList(context),
               ]),
             ),
           ),
@@ -56,7 +56,7 @@ class TalkDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget buildSpeakersList() {
+  Widget buildSpeakersList(BuildContext context) {
     if (talk.speakers.length == 0) {
       return Container();
     }
@@ -77,16 +77,12 @@ class TalkDetailsScreen extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
-            child: Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      fit: BoxFit.scaleDown,
-                      image: NetworkImage(
-                        "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
-                      ))),
+            child: CircleAvatar(
+              radius: 50.0,
+              backgroundColor: Theme.of(context).primaryColorLight,
+              backgroundImage: NetworkImage(
+                "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
+              ),
             ),
           ),
           Padding(
