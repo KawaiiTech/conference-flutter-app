@@ -16,11 +16,16 @@ class TalkView extends StatelessWidget {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
+        child: Flex(
+          direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(talk.title, style: TextStyle(fontSize: 20.0),),
+            Text(
+              talk.title,
+              style: TextStyle(fontSize: 18.0),
+              softWrap: true,
+            ),
           ],
         ),
       ),

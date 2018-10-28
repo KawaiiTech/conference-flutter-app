@@ -15,16 +15,16 @@ class DayScreen extends StatelessWidget {
         appBar: TabBar(
           labelColor: Colors.pinkAccent,
           tabs: [
-            Text("Track 1"),
-            Text("Track 2"),
-            Text("Workshops"),
+            Text(day.track1.name),
+            Text(day.track2.name),
+            Text(day.track3.name),
           ],
         ),
         body: TabBarView(
           children: [
-            TrackListView(day.track1),
-            TrackListView(day.track2),
-            TrackListView(day.track3),
+            TrackListView(day.track1, day.slotInfo),
+            TrackListView(day.track2, day.slotInfo),
+            TrackListView(day.track3, day.slotInfo),
           ],
         ),
       ),
