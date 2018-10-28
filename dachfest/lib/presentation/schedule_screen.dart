@@ -31,29 +31,11 @@ class ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("DACHFest"),
-          bottom: TabBar(
-            tabs: [
-              Text("Track 1"),
-              Text("Track 2"),
-              Text("Workshops"),
-            ],
-          ),
-        ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
-        body: Container(
-          child: _currentScreen,
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("TalksScreen"),
       ),
-    );
-  }
-
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
@@ -85,6 +67,10 @@ class ScheduleScreenState extends State<ScheduleScreen> {
             }
           });
         },
-      );
+      ),
+      body: Container(
+        child: _currentScreen,
+      ),
+    );
   }
 }
