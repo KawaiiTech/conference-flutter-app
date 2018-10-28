@@ -41,7 +41,7 @@ class TalkDetailsScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    talk.description,
+                    talk.description ?? "",
                     style: TextStyle(
                       fontSize: 16.0,
                     ),
