@@ -44,7 +44,7 @@ class ScheduleScreenState extends State<ScheduleScreen> {
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           canvasColor: Theme.of(context).primaryColor,
-          primaryColor: Colors.pinkAccent,
+          primaryColor: Theme.of(context).accentColor,
           textTheme: Theme.of(context).textTheme.copyWith(
                 caption: TextStyle(
                   color: Colors.white,
@@ -55,11 +55,11 @@ class ScheduleScreenState extends State<ScheduleScreen> {
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.android),
+              icon: Icon(Icons.today),
               title: Text("Day 1"),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.android),
+              icon: Icon(Icons.today),
               title: Text("Day 2"),
             ),
             BottomNavigationBarItem(

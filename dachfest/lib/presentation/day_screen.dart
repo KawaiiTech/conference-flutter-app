@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class DayScreen extends StatelessWidget {
   final Day day;
 
+  double listViewOffset = 0.0;
+
   DayScreen(this.day) : assert(day != null);
 
   @override
@@ -23,9 +25,24 @@ class DayScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            TrackListView(day.track1, day.slotInfo),
-            TrackListView(day.track2, day.slotInfo),
-            TrackListView(day.track3, day.slotInfo),
+            TrackListView(
+              day.track1,
+              day.slotInfo,
+              getOffsetMethod: () => listViewOffset,
+              setOffsetMethod: (offset) => this.listViewOffset = offset,
+            ),
+            TrackListView(
+              day.track2,
+              day.slotInfo,
+              getOffsetMethod: () => listViewOffset,
+              setOffsetMethod: (offset) => this.listViewOffset = offset,
+            ),
+            TrackListView(
+              day.track3,
+              day.slotInfo,
+              getOffsetMethod: () => listViewOffset,
+              setOffsetMethod: (offset) => this.listViewOffset = offset,
+            ),
           ],
         ),
       ),

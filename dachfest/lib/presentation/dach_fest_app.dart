@@ -15,7 +15,7 @@ class DachFestAppState extends State<DachFestApp> {
       home: ScheduleScreen(),
       theme: ThemeData(
         primaryColor: Color(0xFF673ab7),
-        accentColor: Colors.pinkAccent,
+        accentColor: Color(0xFFFFA726),
       ),
     );
   }

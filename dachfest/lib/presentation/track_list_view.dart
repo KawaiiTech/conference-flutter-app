@@ -2,16 +2,28 @@ import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/talk_view.dart';
 import 'package:flutter/material.dart';
 
+typedef double GetOffsetMethod();
+typedef void SetOffsetMethod(double offset);
+
 class TrackListView extends StatelessWidget {
   final Track track;
   final List<SlotInfo> slotInfo;
 
-  TrackListView(this.track, this.slotInfo)
-      : assert(track != null),
+  final GetOffsetMethod getOffsetMethod;
+  final SetOffsetMethod setOffsetMethod;
+  ScrollController scrollController;
+
+  TrackListView(
+    this.track,
+    this.slotInfo, {
+    this.getOffsetMethod,
+    this.setOffsetMethod,
+  })  : assert(track != null),
         assert(slotInfo != null);
 
   @override
   Widget build(BuildContext context) {
+    scrollController = ScrollController(initialScrollOffset: getOffsetMethod());
     var rows = <Widget>[];
 
     for (var i = 0; i < track.talks.length;) {
@@ -19,11 +31,16 @@ class TrackListView extends StatelessWidget {
       i += track.talks[i].extend;
     }
 
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return getTalkWidget(index);
+    return NotificationListener(
+      child: ListView(
+        controller: scrollController,
+        children: rows,
+      ),
+      onNotification: (notification) {
+        if (notification is ScrollNotification) {
+          setOffsetMethod(notification.metrics.pixels);
+        }
       },
-      itemCount: track.talks.length,
     );
   }
 
