@@ -1,39 +1,22 @@
-import 'package:dachfest/data/local_data.dart';
+import 'package:dachfest/data/mock_data.dart';
+import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/talk_row.dart';
 import 'package:flutter/material.dart';
 
-class TalksScreen extends StatefulWidget {
+class ScheduleScreen extends StatefulWidget {
+  ScheduleScreen();
+
   @override
-  TalksScreenState createState() {
-    return new TalksScreenState();
+  ScheduleScreenState createState() {
+    return new ScheduleScreenState();
   }
 }
 
-class TalksScreenState extends State<TalksScreen> {
+class ScheduleScreenState extends State<ScheduleScreen> {
   int _currentIndex = 0;
 
-  final List<Talk> talks = [
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-    Talk(
-        time: "10:00",
-        title: "Sketchnoting Workshop",
-        author: "Miquel and Lara"),
-  ];
+  // TODO use this
+  Schedule _schedule = mockSchedule;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +24,14 @@ class TalksScreenState extends State<TalksScreen> {
       appBar: AppBar(
         title: Text("TalksScreen"),
       ),
-      body: ListView.builder(
-        itemCount: talks.length,
-        itemBuilder: (BuildContext context, int index) => TalkListRow(
-              talks[index],
-            ),
-      ),
+      body: Container(),
+// TODO
+//      ListView.builder(
+//        itemCount: talks.length,
+//        itemBuilder: (BuildContext context, int index) => TalkListRow(
+//              talks[index],
+//            ),
+//      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: [

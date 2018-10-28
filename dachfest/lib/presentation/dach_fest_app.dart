@@ -1,3 +1,4 @@
+import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/presentation/talks_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class DachFestAppState extends State<DachFestApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TalksScreen(),
+      home: ScheduleScreen(),
     );
   }
 }
