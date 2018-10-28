@@ -1,4 +1,5 @@
 import 'package:dachfest/domain/domain.dart';
+import 'package:dachfest/presentation/talk_view.dart';
 import 'package:flutter/material.dart';
 
 class DayGrid extends StatelessWidget {
@@ -36,6 +37,6 @@ class DayGrid extends StatelessWidget {
   }
 
   Widget getTalkWidget(Track track, int position) {
-    return Text(track.talks[position].title);
+    return TalkView(track.talks[position]);
   }
 }
