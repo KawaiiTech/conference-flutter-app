@@ -1,4 +1,5 @@
 import 'package:dachfest/domain/domain.dart';
+import 'package:dachfest/presentation/talk_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class TalkView extends StatelessWidget {
@@ -26,21 +27,33 @@ class TalkView extends StatelessWidget {
     return Container(
       height: 100.0 * talk.extend,
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Flex(
-            direction: Axis.vertical,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                talk.title,
-                style: TextStyle(fontSize: 18.0),
-                softWrap: true,
-                maxLines: 2,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TalkDetailsScreen(
+                  talk: talk,
+                ),
               ),
-              buildSpeakersRow()
-            ],
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Flex(
+              direction: Axis.vertical,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  talk.title,
+                  style: TextStyle(fontSize: 18.0),
+                  softWrap: true,
+                  maxLines: 2,
+                ),
+                buildSpeakersRow()
+              ],
+            ),
           ),
         ),
       ),
