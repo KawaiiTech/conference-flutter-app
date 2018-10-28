@@ -1,5 +1,5 @@
 import 'package:dachfest/domain/domain.dart';
-import 'package:dachfest/presentation/day_grid.dart';
+import 'package:dachfest/presentation/track_list_view.dart';
 import 'package:flutter/material.dart';
 
 class DayScreen extends StatelessWidget {
@@ -9,6 +9,6 @@ class DayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DayGrid(day);
+    return TrackListView(day.track1);
   }
 }
