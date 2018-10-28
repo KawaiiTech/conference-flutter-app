@@ -7,5 +7,12 @@ class Talk {
     this.time,
     this.title,
     this.author,
-  }) : assert(title != null, author != null);
+  }) : assert(title != null);
+
+  @override
+  String toString() {
+    return 'Talk{time: $time, title: $title, author: $author}';
+  }
+
+
 }
