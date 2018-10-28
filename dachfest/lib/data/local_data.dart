@@ -25,12 +25,13 @@ Schedule parseSchedule(Map<String, dynamic> data) {
   );
 }
 
-Day parseDay(Map<String, dynamic> day1data, Map<String, dynamic> data) {
-  final List<dynamic> timeslots = day1data['timeslots'];
+Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
+  final List<dynamic> timeslots = daydata['timeslots'];
 
   final track1 = <Talk>[];
   final track2 = <Talk>[];
   final track3 = <Talk>[];
+  final slotInfo = <SlotInfo>[];
 
   for (final slot in timeslots) {
     final List<dynamic> sessions = slot['sessions'];
@@ -48,12 +49,17 @@ Day parseDay(Map<String, dynamic> day1data, Map<String, dynamic> data) {
     } else {
       track3.add(emptyTalk);
     }
+    slotInfo.add(SlotInfo(
+      start: slot['startTime'],
+      end: slot['endTime'],
+    ));
   }
 
   return Day(
-    track1: Track(talks: track1),
-    track2: Track(talks: track2),
-    track3: Track(talks: track3),
+    slotInfo: slotInfo,
+    track1: Track(talks: track1, name: daydata['tracks'][0]['title']),
+    track2: Track(talks: track2, name: daydata['tracks'][1]['title']),
+    track3: Track(talks: track3, name: daydata['tracks'][2]['title']),
   );
 }
 

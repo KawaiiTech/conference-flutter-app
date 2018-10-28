@@ -39,6 +39,19 @@ void main() {
     Schedule schedule = await getSchedule();
     expect(schedule.day1.track1.talks[0].title, "Registration");
   });
+
+  test('First slot info title should be 09:00 10:00', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.slotInfo[0].start, "09:00");
+    expect(schedule.day1.slotInfo[0].end, "10:00");
+  });
+
+  test('Track names for day 1', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track1.name, "Track One");
+    expect(schedule.day1.track2.name, "Track Two");
+    expect(schedule.day1.track3.name, "Workshops");
+  });
 }
 
 Future<Schedule> getSchedule() async {
