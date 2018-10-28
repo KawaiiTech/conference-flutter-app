@@ -1,6 +1,6 @@
 import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/domain/domain.dart';
-import 'package:dachfest/presentation/talk_row.dart';
+import 'package:dachfest/presentation/talk_list_row.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleScreen extends StatefulWidget {
