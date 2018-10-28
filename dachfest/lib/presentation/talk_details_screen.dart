@@ -75,22 +75,19 @@ class TalkDetailsScreen extends StatelessWidget {
     for (var i = 0; i < talk.speakers.length; i++) {
       widgets.add(Row(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: CircleAvatar(
-              radius: 50.0,
-              backgroundColor: Theme.of(context).primaryColorLight,
-              backgroundImage: NetworkImage(
-                "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
-              ),
+          CircleAvatar(
+            radius: 50.0,
+            backgroundColor: Theme.of(context).primaryColorLight,
+            backgroundImage: NetworkImage(
+              "https://dachfest.com/images/people/speakers/${talk.speakers[i].id}.jpg",
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 24.0),
+            padding: const EdgeInsets.only(left: 16.0),
             child: Text(
               talk.speakers[i].name,
               style: TextStyle(
-                fontSize: 16.0,
+                fontSize: 20.0,
               ),
             ),
           ),
