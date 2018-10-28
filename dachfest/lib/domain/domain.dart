@@ -31,16 +31,16 @@ class Track {
 final emptyTalk = Talk(
   id: "",
   title: "",
-  authors: [],
+  speakers: [],
 );
 
 class Talk {
   final String id;
   final String title;
-  final List<Author> authors;
+  final List<Speaker> speakers;
   final int extend;
 
-  Talk({this.id, this.title, this.authors, this.extend = 1});
+  Talk({this.id, this.title, this.speakers, this.extend = 1});
 
   @override
   String toString() {
@@ -48,9 +48,9 @@ class Talk {
   }
 }
 
-class Author {
+class Speaker {
   final String name;
   final String picture;
 
-  Author({this.name, this.picture});
+  Speaker({this.name, this.picture});
 }
