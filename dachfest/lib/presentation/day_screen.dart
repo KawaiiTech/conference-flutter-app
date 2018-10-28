@@ -13,7 +13,8 @@ class DayScreen extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: TabBar(
-          labelColor: Colors.pinkAccent,
+          labelPadding: EdgeInsets.all(16.0),
+          labelColor: Theme.of(context).primaryColor,
           tabs: [
             Text(day.track1.name),
             Text(day.track2.name),
