@@ -57,6 +57,16 @@ void main() {
     expect(schedule.day1.track2.name, "Track Two");
     expect(schedule.day1.track3.name, "Workshops");
   });
+
+  test('track 1, slot 3 should have a description', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track1.talks[2].description, isNotEmpty);
+  });
+
+  test('track 1, slot 3 should have a list of speakers', () async {
+    Schedule schedule = await getSchedule();
+    expect(schedule.day1.track1.talks[2].speakers, isNotEmpty);
+  });
 }
 
 Future<Schedule> getSchedule() async {

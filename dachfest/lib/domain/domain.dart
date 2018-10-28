@@ -37,10 +37,11 @@ final emptyTalk = Talk(
 class Talk {
   final String id;
   final String title;
+  final String description;
   final List<Speaker> speakers;
   final int extend;
 
-  Talk({this.id, this.title, this.speakers, this.extend = 1});
+  Talk({this.id, this.title, this.description, this.speakers, this.extend = 1});
 
   @override
   String toString() {

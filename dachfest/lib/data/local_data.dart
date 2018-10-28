@@ -70,8 +70,27 @@ Talk parseTalk(id, Map<String, dynamic> data, [int extend = 1]) {
   return Talk(
     id: id,
     title: talk['title'],
+    description: talk['description'],
+    speakers: parseSpeakers(talk['speakers'], data),
     extend: extend,
   );
+}
+
+List<Speaker> parseSpeakers(List<dynamic> speakerIds, data) {
+  final speakersData = data['speakers'];
+  final List<Speaker> speakers = <Speaker>[];
+  if (speakerIds == null) {
+    return <Speaker>[];
+  }
+  for (String speakerId in speakerIds) {
+    final speakerData = speakersData[speakerId];
+    Speaker speaker = Speaker(
+      name: speakerData['name'],
+      picture: speakerData['photoUrl'],
+    );
+    speakers.add(speaker);
+  }
+  return speakers;
 }
 
 Future<Schedule> getSchedule(BuildContext context) async {
