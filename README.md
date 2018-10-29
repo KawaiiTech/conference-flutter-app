@@ -10,14 +10,14 @@ We decided to write it from scratch because we wanted:
 
 [1] authors are: Lara Martín and Miquel Beltran.
 
+[2] https://www.dachfest.com
+
 ## FAQ
 
 **Could you add...?**
 
 No, we are not open for suggestions. Feel free to submit a PR, but we may or may not merge it.
 We don't have time to maintain it.
-
-Otherwise, if you want to pay for it, we will do it: http://beltran.work/with-me
 
 **Is the app code correct?**
 
@@ -32,7 +32,7 @@ But it does what it is supposed to do :-)
 
 Yes! The app is open source, so please follow the attached licenses.
 
-Otherwise, if you want to pay for it, we can do it for you: http://beltran.work/with-me
+Otherwise, if you can pay it, we can do it for you: http://beltran.work/with-me
 
 ## Licencing
 
