@@ -40,7 +40,7 @@ Otherwise, if you can pay it, we can do it for you: http://beltran.work/with-me
    All resources and conference information found in the app belong to the DACHFest
    organizing team and were taken from https://github.com/DACHFest/dachfest.com
 
-   Copyright 2018 Lara Marín and Miquel Beltran.
+   Copyright 2018 Lara Martín and Miquel Beltran.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
