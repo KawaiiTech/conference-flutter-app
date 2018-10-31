@@ -15,6 +15,7 @@ environment:
 dependencies:
   url_launcher: ^4.0.1
   flutter_launcher_icons: "^0.6.1"
+  http: ^0.11.0
 
   flutter:
     sdk: flutter
@@ -47,7 +48,7 @@ flutter:
   uses-material-design: true
 
   assets:
-   - data_repo/dachfest-2018.json
+   - data_repo/default-firebase-data.json
    - assets/logo.png
 
   # To add assets to your application, add an assets section, like this:

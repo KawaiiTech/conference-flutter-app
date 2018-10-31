@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dachfest/data/local_data.dart';
+import 'package:dachfest/data/parser.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -80,7 +80,7 @@ void main() {
 }
 
 Future<Schedule> getSchedule() async {
-  final file = new File('data_repo/dachfest-2018.json');
+  final file = new File('data_repo/default-firebase-data.json');
   final data = decode(await file.readAsString());
   final schedule = parseSchedule(data);
   return schedule;

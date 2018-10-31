@@ -1,4 +1,5 @@
 import 'package:dachfest/data/local_data.dart';
+import 'package:dachfest/data/network_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
 import 'package:dachfest/presentation/info_screen.dart';
@@ -23,11 +24,30 @@ class ScheduleScreenState extends State<ScheduleScreen> {
   @override
   void initState() {
     super.initState();
+    loadScheduleFromLocal();
+  }
+
+  void loadScheduleFromLocal() {
     getSchedule(context).then((schedule) {
       setState(() {
         _schedule = schedule;
         _currentScreen = DayScreen(_schedule.day1);
+        print("Loaded from local");
       });
+    }).then((_) {
+      loadScheduleFromNetwork();
+    });
+  }
+
+  void loadScheduleFromNetwork() {
+    getNetworkSchedule().then((schedule) {
+      setState(() {
+        _schedule = schedule;
+        print("Loaded from network");
+      });
+    }).catchError((error) {
+      print("Network Error :-(");
+      print(error);
     });
   }
 
@@ -44,13 +64,20 @@ class ScheduleScreenState extends State<ScheduleScreen> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Theme.of(context).primaryColor,
-          primaryColor: Theme.of(context).accentColor,
-          textTheme: Theme.of(context).textTheme.copyWith(
-                caption: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
+          canvasColor: Theme
+              .of(context)
+              .primaryColor,
+          primaryColor: Theme
+              .of(context)
+              .accentColor,
+          textTheme: Theme
+              .of(context)
+              .textTheme
+              .copyWith(
+            caption: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
