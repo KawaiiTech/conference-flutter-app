@@ -76,6 +76,19 @@ class InfoScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: InkWell(
                 child: Text(
+                  "GitHub Repository Source",
+                  style: Theme.of(context).accentTextTheme.subhead.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: Theme.of(context).accentColor,
+                  ),
+                ),
+                onTap: () => _launchURL('https://github.com/KawaiiTech/dachfest-flutter-app'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: InkWell(
+                child: Text(
                   "laramartin.eu",
                   style: Theme.of(context).accentTextTheme.subhead.copyWith(
                         decoration: TextDecoration.underline,
