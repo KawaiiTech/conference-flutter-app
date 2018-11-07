@@ -2,6 +2,8 @@
 
 <a href='https://play.google.com/store/apps/details?id=work.beltran.dachfest&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width=200/></a>
 
+<a href="https://itunes.apple.com/us/app/dachfest-2018-unofficial/id1440477870?mt=8"><img src='https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2018-10-31&kind=iossoftware&bubble=ios_apps'  width=180//></a>
+
 On Sunday 28 of October we[1] decided to build a little multiplatform conference app for DACHFest[2] 2018.
 
 We decided to write it from scratch because we wanted:
@@ -13,6 +15,21 @@ We decided to write it from scratch because we wanted:
 [1] authors are: Lara Martín and Miquel Beltran.
 
 [2] https://www.dachfest.com
+
+## Running
+
+1. Create a file named `key.properties` in the `dachfest/android` folder.
+2. Add the following text inside:
+
+```
+storePassword=
+keyPassword=
+keyAlias=
+storeFile=""
+```
+(You can replace this data with your own to do a signed release APK)
+
+3. Now you can run the project.
 
 ## FAQ
 
