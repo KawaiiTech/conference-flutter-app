@@ -43,7 +43,7 @@ class InfoScreen extends StatelessWidget {
                   ),
             ),
             onTap: () => _launchURL(
-                'https://www.google.com/maps/dir/?api=1&destination=48.148214,11.5505653'),
+                'https://www.google.com/maps/dir/?api=1&destination=48.148667,11.568606'),
           ),
         )
       ],
