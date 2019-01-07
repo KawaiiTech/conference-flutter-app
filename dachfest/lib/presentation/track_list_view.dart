@@ -74,7 +74,7 @@ class TimeView extends StatelessWidget {
   Container buildContainer(int index) {
     return Container(
       height: 100.0,
-      width: 52.0,
+      width: 60.0,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
