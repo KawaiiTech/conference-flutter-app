@@ -3,56 +3,52 @@ import 'package:dachfest/data/network_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
 import 'package:dachfest/presentation/info_screen.dart';
+import 'package:dachfest/redux/app_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
-class ScheduleScreen extends StatefulWidget {
-  ScheduleScreen();
-
+class ScheduleScreen extends StatelessWidget {
   @override
-  ScheduleScreenState createState() {
-    return new ScheduleScreenState();
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, _ViewModel>(
+        converter: _ViewModel.fromStore,
+        builder: (context, vm) {
+          return _ScheduleScreen(
+            schedule: vm.schedule,
+          );
+        });
   }
 }
 
-class ScheduleScreenState extends State<ScheduleScreen> {
-  int _currentIndex = 0;
+class _ViewModel {
+  Schedule schedule;
 
-  Schedule _schedule;
+  _ViewModel({this.schedule});
 
-  var _currentScreen;
-
-  @override
-  void initState() {
-    super.initState();
-    loadScheduleFromLocal();
+  static _ViewModel fromStore(Store<AppState> store) {
+    return _ViewModel(
+      schedule: store.state.schedule,
+    );
   }
+}
 
-  void loadScheduleFromLocal() {
-    getSchedule(context).then((schedule) {
-      setState(() {
-        _schedule = schedule;
-        _currentScreen = DayScreen(_schedule.day1);
-        print("Loaded from local");
-      });
-    }).then((_) {
-      loadScheduleFromNetwork();
-    });
-  }
+class _ScheduleScreen extends StatelessWidget {
+  Schedule schedule;
 
-  void loadScheduleFromNetwork() {
-    getNetworkSchedule().then((schedule) {
-      setState(() {
-        _schedule = schedule;
-        print("Loaded from network");
-      });
-    }).catchError((error) {
-      print("Network Error :-(");
-      print(error);
-    });
-  }
+  _ScheduleScreen({this.schedule});
 
   @override
   Widget build(BuildContext context) {
+
+    Widget body;
+
+    if (schedule == null) {
+      body = Container();
+    } else {
+      body = DayScreen(schedule.day1);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Padding(
@@ -80,7 +76,7 @@ class ScheduleScreenState extends State<ScheduleScreen> {
           ),
         ),
         child: BottomNavigationBar(
-          currentIndex: _currentIndex,
+          currentIndex: 0, // replace by index
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
@@ -96,25 +92,25 @@ class ScheduleScreenState extends State<ScheduleScreen> {
             ),
           ],
           onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-              switch (index) {
-                case 0:
-                  _currentScreen = DayScreen(_schedule.day1);
-                  break;
-                case 1:
-                  _currentScreen = DayScreen(_schedule.day2);
-                  break;
-                case 2:
-                  _currentScreen = InfoScreen();
-                  break;
-              }
-            });
+//            setState(() {
+//              _currentIndex = index;
+//              switch (index) {
+//                case 0:
+//                  _currentScreen = DayScreen(_schedule.day1);
+//                  break;
+//                case 1:
+//                  _currentScreen = DayScreen(_schedule.day2);
+//                  break;
+//                case 2:
+//                  _currentScreen = InfoScreen();
+//                  break;
+//              }
+//            });
           },
         ),
       ),
       body: Container(
-        child: _currentScreen,
+        child: body,
       ),
     );
   }
