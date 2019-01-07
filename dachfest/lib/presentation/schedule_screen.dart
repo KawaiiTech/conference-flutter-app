@@ -3,6 +3,7 @@ import 'package:dachfest/data/network_data.dart';
 import 'package:dachfest/domain/domain.dart';
 import 'package:dachfest/presentation/day_screen.dart';
 import 'package:dachfest/presentation/info_screen.dart';
+import 'package:dachfest/redux/app_actions.dart';
 import 'package:dachfest/redux/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -16,37 +17,64 @@ class ScheduleScreen extends StatelessWidget {
         builder: (context, vm) {
           return _ScheduleScreen(
             schedule: vm.schedule,
+            screen: vm.screen,
+            onNavigate: vm.onNavigate,
           );
         });
   }
 }
 
 class _ViewModel {
-  Schedule schedule;
+  final Schedule schedule;
+  final Screen screen;
+  final Function onNavigate;
 
-  _ViewModel({this.schedule});
+  _ViewModel({
+    this.schedule,
+    this.screen,
+    this.onNavigate,
+  });
 
   static _ViewModel fromStore(Store<AppState> store) {
     return _ViewModel(
       schedule: store.state.schedule,
+      screen: store.state.screen,
+      onNavigate: (screen) {
+        store.dispatch(Navigate(screen: screen));
+      }
     );
   }
 }
 
 class _ScheduleScreen extends StatelessWidget {
-  Schedule schedule;
+  final Schedule schedule;
+  final Screen screen;
+  final Function(Screen) onNavigate;
 
-  _ScheduleScreen({this.schedule});
+  _ScheduleScreen({
+    this.schedule,
+    this.screen,
+    this.onNavigate,
+  });
 
   @override
   Widget build(BuildContext context) {
-
     Widget body;
 
     if (schedule == null) {
       body = Container();
     } else {
-      body = DayScreen(schedule.day1);
+      switch (screen) {
+        case Screen.Day1:
+          body = DayScreen(schedule.day1);
+          break;
+        case Screen.Day2:
+          body = DayScreen(schedule.day2);
+          break;
+        case Screen.Info:
+          body = InfoScreen();
+          break;
+      }
     }
 
     return Scaffold(
@@ -60,23 +88,16 @@ class _ScheduleScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Theme
-              .of(context)
-              .primaryColor,
-          primaryColor: Theme
-              .of(context)
-              .accentColor,
-          textTheme: Theme
-              .of(context)
-              .textTheme
-              .copyWith(
-            caption: TextStyle(
-              color: Colors.white,
-            ),
-          ),
+          canvasColor: Theme.of(context).primaryColor,
+          primaryColor: Theme.of(context).accentColor,
+          textTheme: Theme.of(context).textTheme.copyWith(
+                caption: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
         ),
         child: BottomNavigationBar(
-          currentIndex: 0, // replace by index
+          currentIndex: _screenIndex(screen), // replace by index
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
@@ -92,20 +113,7 @@ class _ScheduleScreen extends StatelessWidget {
             ),
           ],
           onTap: (index) {
-//            setState(() {
-//              _currentIndex = index;
-//              switch (index) {
-//                case 0:
-//                  _currentScreen = DayScreen(_schedule.day1);
-//                  break;
-//                case 1:
-//                  _currentScreen = DayScreen(_schedule.day2);
-//                  break;
-//                case 2:
-//                  _currentScreen = InfoScreen();
-//                  break;
-//              }
-//            });
+            onNavigate(_indexScreen(index));
           },
         ),
       ),
@@ -114,4 +122,31 @@ class _ScheduleScreen extends StatelessWidget {
       ),
     );
   }
+
+  int _screenIndex(Screen screen) {
+    switch (screen) {
+      case Screen.Day1:
+        return 0;
+      case Screen.Day2:
+        return 1;
+      case Screen.Info:
+        return 2;
+      default:
+        return 0;
+    }
+  }
+
+  Screen _indexScreen(int index) {
+    switch (index) {
+      case 0:
+        return Screen.Day1;
+      case 1:
+        return Screen.Day2;
+      case 2:
+        return Screen.Info;
+      default:
+        return Screen.Day1;
+    }
+  }
 }
+

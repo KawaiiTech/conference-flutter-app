@@ -7,7 +7,9 @@ import 'package:flutter/widgets.dart';
 class LoadLocalAction {
   BuildContext context;
 
-  LoadLocalAction({this.context});
+  LoadLocalAction({
+    this.context,
+  });
 
   @override
   String toString() {
@@ -27,7 +29,9 @@ class LoadNetworkAction {
 class LoadedAction {
   Schedule schedule;
 
-  LoadedAction({this.schedule});
+  LoadedAction({
+    this.schedule,
+  });
 
   @override
   String toString() {
@@ -38,12 +42,12 @@ class LoadedAction {
 class Navigate {
   Screen screen;
 
-  Navigate.name(this.screen);
+  Navigate({
+    this.screen,
+  });
 
   @override
   String toString() {
     return 'Navigate{screen: $screen}';
   }
 }
-
-
