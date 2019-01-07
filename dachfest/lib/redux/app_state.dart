@@ -4,7 +4,10 @@ class AppState {
   Schedule schedule;
   Screen screen;
 
-  AppState({this.schedule, this.screen});
+  AppState({
+    this.schedule,
+    this.screen,
+  });
 
   factory AppState.init() => AppState(schedule: null, screen: Screen.Day1);
 
@@ -14,6 +17,4 @@ class AppState {
   }
 }
 
-enum Screen {
-  Day1, Day2, Info
-}
+enum Screen { Day1, Day2, Info }
