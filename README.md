@@ -1,10 +1,6 @@
-# DACHFest Flutter App
+# Conference Flutter App
 
-Update: Now with Redux!
-
-<a href='https://play.google.com/store/apps/details?id=work.beltran.dachfest&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width=200/></a>
-
-<a href="https://itunes.apple.com/us/app/dachfest-2018-unofficial/id1440477870?mt=8"><img src='https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2018-10-31&kind=iossoftware&bubble=ios_apps'  width=180//></a>
+`Now with more Redux!`
 
 On Sunday 28 of October we[1] decided to build a little multiplatform conference app for DACHFest[2] 2018.
 
@@ -14,9 +10,16 @@ We decided to write it from scratch because we wanted:
 2. Something multiplatform (and that's why we used Flutter).
 3. A fun weekend project for the two of us.
 
-[1] authors are: Lara Martín and Miquel Beltran.
+[1] authors are: Lara Martín and Miguel Beltran.
 
 [2] https://www.dachfest.com
+
+The app has two conferences currently:
+
+- DACHFest in the `dachfest` branch.
+- CFCamp[3] in the `cfcamp` branch.
+
+[3] https://www.cfcamp.org/
 
 ## Running
 
@@ -56,7 +59,7 @@ But it does what it is supposed to do :-)
 
 Yes! The app is open source, so please follow the attached licenses.
 
-Otherwise, if you can pay it, we can do it for you: http://beltran.work/with-me
+Otherwise, if you can pay it, we can do it for you: http://beltran.work/
 
 ## Licencing
 
@@ -64,7 +67,7 @@ Otherwise, if you can pay it, we can do it for you: http://beltran.work/with-me
    All resources and conference information found in the app belong to the DACHFest
    organizing team and were taken from https://github.com/DACHFest/dachfest.com
 
-   Copyright 2018 Lara Martín and Miquel Beltran.
+   Copyright 2018, 2019 Lara Martín and Miguel Beltran.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
