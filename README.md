@@ -1,5 +1,7 @@
 # DACHFest Flutter App
 
+Update: Now with Redux!
+
 <a href='https://play.google.com/store/apps/details?id=work.beltran.dachfest&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width=200/></a>
 
 <a href="https://itunes.apple.com/us/app/dachfest-2018-unofficial/id1440477870?mt=8"><img src='https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2018-10-31&kind=iossoftware&bubble=ios_apps'  width=180//></a>
@@ -40,8 +42,11 @@ We don't have time to maintain it.
 
 **Is the app code correct?**
 
-It was a weekend project. Meaning, there are some good practices that we ignored, for example
-writing UI tests, implementing dependency injection, and following an architectural pattern.
+We have refactored the app code to use Redux v3. 
+Which makes it a cool example to understand how Redux works.
+
+However, there are some good practices that we ignored, for example
+writing UI tests or implementing dependency injection.
 
 i.e. don't take this project as a GOOD Flutter app example.
 
