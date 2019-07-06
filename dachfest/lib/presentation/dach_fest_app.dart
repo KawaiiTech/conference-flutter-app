@@ -1,3 +1,4 @@
+import 'package:dachfest/data/mock_data.dart';
 import 'package:dachfest/presentation/schedule_screen.dart';
 import 'package:dachfest/redux/app_actions.dart';
 import 'package:dachfest/redux/app_middleware.dart';
@@ -20,7 +21,7 @@ class DachFestApp extends StatelessWidget {
       store: store,
       child: MaterialApp(
         home: StoreBuilder<AppState>(
-          onInit: (store) => store.dispatch(LoadLocalAction(context: context)),
+          onInit: (store) => store.dispatch(LoadedAction(schedule: mockSchedule)),
           builder: (context, store) {
             return ScheduleScreen();
           },

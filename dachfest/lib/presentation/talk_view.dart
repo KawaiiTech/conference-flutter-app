@@ -11,21 +11,15 @@ class TalkView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (talk.id.isEmpty) {
+
+    if (talk.title == null) {
       return Container(
-        height: 100.0,
-        child: Center(
-            child: Text(
-          "No Session :-)",
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 10.0,
-          ),
-        )),
+        height: talk.height,
       );
     }
+
     return Container(
-      height: 100.0 * talk.extend,
+      height: talk.height,
       child: Card(
         child: InkWell(
           onTap: () {
@@ -62,7 +56,8 @@ class TalkView extends StatelessWidget {
 
   Widget buildSpeakersRow() {
     var style = TextStyle(fontSize: 12.0, color: Colors.grey);
-    var num = talk.speakers.length;
+//    var num = talk.speakers.length;
+    var num = 0;
     switch (num) {
       case 0:
         return Container();
@@ -91,3 +86,4 @@ class TalkView extends StatelessWidget {
     }
   }
 }
+

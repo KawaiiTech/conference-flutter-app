@@ -12,34 +12,25 @@ class DayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: TabBar(
           labelPadding: EdgeInsets.all(16.0),
           labelColor: Theme.of(context).primaryColor,
           tabs: [
-            Text(day.track1.name),
-            Text(day.track2.name),
-            Text(day.track3.name),
+            Text(day.track1.name, textScaleFactor: 1,),
+            Text(day.track2.name, textScaleFactor: 1,),
           ],
         ),
         body: TabBarView(
           children: [
             TrackListView(
               day.track1,
-              day.slotInfo,
               getOffsetMethod: () => listViewOffset,
               setOffsetMethod: (offset) => this.listViewOffset = offset,
             ),
             TrackListView(
               day.track2,
-              day.slotInfo,
-              getOffsetMethod: () => listViewOffset,
-              setOffsetMethod: (offset) => this.listViewOffset = offset,
-            ),
-            TrackListView(
-              day.track3,
-              day.slotInfo,
               getOffsetMethod: () => listViewOffset,
               setOffsetMethod: (offset) => this.listViewOffset = offset,
             ),

@@ -1,6 +1,7 @@
 import 'package:dachfest/domain/domain.dart';
 import 'dart:convert' as parser;
 
+// TODO: This is broken
 Map<String, dynamic> decode(String string) {
   return parser.jsonDecode(string);
 }
@@ -23,7 +24,6 @@ Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
   final track1 = <Talk>[];
   final track2 = <Talk>[];
   final track3 = <Talk>[];
-  final slotInfo = <SlotInfo>[];
 
   for (final slot in timeslots) {
     final List<dynamic> sessions = slot['sessions'];
@@ -42,17 +42,11 @@ Day parseDay(Map<String, dynamic> daydata, Map<String, dynamic> data) {
     } else {
       track3.add(emptyTalk);
     }
-    slotInfo.add(SlotInfo(
-      start: slot['startTime'],
-      end: slot['endTime'],
-    ));
   }
 
   return Day(
-    slotInfo: slotInfo,
     track1: Track(talks: track1, name: daydata['tracks'][0]['title']),
     track2: Track(talks: track2, name: daydata['tracks'][1]['title']),
-    track3: Track(talks: track3, name: daydata['tracks'][2]['title']),
   );
 }
 
@@ -64,7 +58,6 @@ Talk parseTalk(id, Map<String, dynamic> data, [int extend = 1]) {
     title: talk['title'],
     description: talk['description'],
     speakers: parseSpeakers(talk['speakers'], data),
-    extend: extend,
   );
 }
 

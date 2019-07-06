@@ -15,15 +15,15 @@ List<Middleware<AppState>> createStoreMiddleware() {
 }
 
 void _loadLocalAction(Store<AppState> store, LoadLocalAction action, NextDispatcher next) {
-  getSchedule(action.context).then((schedule) {
-    store.dispatch(LoadedAction(schedule: schedule));
-    store.dispatch(LoadNetworkAction());
-  });
+//  getSchedule(action.context).then((schedule) {
+//    store.dispatch(LoadedAction(schedule: schedule));
+//    store.dispatch(LoadNetworkAction());
+//  });
 }
 
 void _loadNetworkAction(Store<AppState> store, LoadNetworkAction action, NextDispatcher next) {
-  getNetworkSchedule().then((schedule) {
-    store.dispatch(LoadedAction(schedule: schedule));
-  });
+//  getNetworkSchedule().then((schedule) {
+//    store.dispatch(LoadedAction(schedule: schedule));
+//  });
 
 }
