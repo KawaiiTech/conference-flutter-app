@@ -79,6 +79,8 @@ class _ScheduleScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         title: Padding(
           padding: EdgeInsets.all(8.0),
           child: Image.asset(
@@ -101,11 +103,11 @@ class _ScheduleScreen extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
-              title: Text("November 10"),
+              title: Text("October 17"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.today),
-              title: Text("November 11"),
+              title: Text("October 18"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.info_outline),
